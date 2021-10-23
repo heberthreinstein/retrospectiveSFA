@@ -12,7 +12,7 @@ var Roulette = function(sectors) {
   const TAU = 2 * PI;
   const arc = TAU / sectors.length;
   
-  const friction = 0.991; // 0.995=soft, 0.99=mid, 0.98=hard
+  const friction = 0.995; // 0.995=soft, 0.99=mid, 0.98=hard
   let angVel = 0; // Angular velocity
   let ang = 0; // Angle in radians
   
@@ -40,13 +40,18 @@ var Roulette = function(sectors) {
     //
     ctx.restore();
   };
+
+  var audio = new Audio('../../assets/audio/tick.mp3');
   
   function rotate() {
     const sector = sectors[getIndex()];
     ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
-    EL_spin.textContent = sector.label;
-    EL_spin.style.background = sector.color;
-    lastSector = sector.label;
+    if (EL_spin.textContent != sector.label){
+      audio.play()
+      EL_spin.textContent = sector.label;
+      EL_spin.style.background = sector.color;
+      lastSector = sector.label;
+    } 
   }
   
   function frame() {
@@ -74,7 +79,7 @@ var Roulette = function(sectors) {
       if (!angVel) angVel = rand(0.25, 0.35);
       setTimeout(() => {
         observer.next(lastSector);
-      }, 10000);
+      }, 17000);
     });
   });
 
