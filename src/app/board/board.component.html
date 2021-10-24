@@ -1,0 +1,32 @@
+<div class="grid">
+    <div class="col-2">
+        <h2>Que Bão</h2>
+        <hr>
+        <div *ngFor="let item of respostas | async">
+            <app-card *ngIf="item.sorteado" [nome]='item.nome' [texto]='item.queBao' color='#0c2026'></app-card>
+        </div>
+    </div>
+    <div class="col-2">
+        <h2>Que Ruim</h2>
+        <hr>
+        <div *ngFor="let item of respostas | async">
+            <app-card *ngIf="item.sorteado" [nome]='item.nome' [texto]='item.queRuim' color='#0c2026'></app-card>
+        </div>
+    </div>
+    <div class="col-2">
+        <h2>Sugestão</h2>
+        <hr>
+        <div *ngFor="let item of respostas | async">
+            <app-card *ngIf="item.sorteado" [nome]='item.nome' [texto]='item.sugestao' color='#0c2026'></app-card>
+        </div>
+    </div>
+    <div class="col-2">
+        <h2>Nota De Felicidade</h2>
+        <hr>
+        <div *ngFor="let item of respostas | async">
+            <app-card *ngIf="item.sorteado" [nome]='item.nome' [texto]='item.notaDeFelicidade' color='#0c2026'></app-card>
+        </div>
+    </div>
+</div>
+
+

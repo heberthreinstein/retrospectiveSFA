@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+}
+
+[class*="col-"] {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.col-2 {width: 25%;}
