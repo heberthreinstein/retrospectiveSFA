@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { Component, Input, OnChanges} from '@angular/core';
 import * as Roullete from './roulette';
 
 @Component({
@@ -6,14 +6,11 @@ import * as Roullete from './roulette';
   templateUrl: './fortune-wheel.component.html',
   styleUrls: ['./fortune-wheel.component.scss']
 })
-export class FortuneWheelComponent implements AfterViewInit  {
-  @ViewChild('canvas') canvas!: ElementRef;
-  @ViewChild('spin') spin!: ElementRef;
+export class FortuneWheelComponent implements OnChanges  {
 
   @Input() sectors: any;
 
-  ngAfterViewInit (): void {
-    
-    var roulette = Roullete(this.sectors).subscribe((res: any) => console.log(res));
+  ngOnChanges (): void {
+    Roullete(this.sectors).subscribe((res: any) => console.log(res));
   }
 }

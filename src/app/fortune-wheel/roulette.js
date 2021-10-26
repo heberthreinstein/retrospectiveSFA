@@ -36,7 +36,7 @@ var Roulette = function(sectors) {
     ctx.textAlign = "right";
     ctx.fillStyle = "#fff";
     ctx.font = "bold 30px sans-serif";
-    ctx.fillText(sector.label, rad - 10, 10);
+    ctx.fillText(sector.nome, rad - 10, 10);
     //
     ctx.restore();
   };
@@ -46,11 +46,11 @@ var Roulette = function(sectors) {
   function rotate() {
     const sector = sectors[getIndex()];
     ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
-    if (EL_spin.textContent != sector.label){
+    if (EL_spin.textContent != sector.nome){
       audio.play()
-      EL_spin.textContent = sector.label;
+      EL_spin.textContent = sector.nome;
       EL_spin.style.background = sector.color;
-      lastSector = sector.label;
+      lastSector = sector.nome;
     } 
   }
   

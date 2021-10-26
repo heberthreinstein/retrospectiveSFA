@@ -1,9 +1,18 @@
+<div class="interior">
+    <a class="btn" href="#open-modal">🎡 Roleta 🎡</a>
+</div>
+<div id="open-modal" class="modal-window">
+    <div>
+        <a href="#" title="Close" class="modal-close">Close</a>
+        <app-fortune-wheel [sectors]="respostas | async"></app-fortune-wheel>
+    </div>
+</div>
 <div class="grid">
     <div class="col-2">
         <h2>Que Bão</h2>
         <hr>
         <div *ngFor="let item of respostas | async">
-            <app-card *ngIf="item.sorteado" [nome]='item.nome' [texto]='item.queBao' color='#0c2026'></app-card>
+            <app-card *ngIf="item.sorteado" [nome]='item.nome' [texto]='item.queBao' [color]='item.color'></app-card>
         </div>
     </div>
     <div class="col-2">
