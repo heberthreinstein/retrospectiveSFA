@@ -11,6 +11,12 @@ export class FortuneWheelComponent implements OnChanges  {
   @Input() sectors: any;
 
   ngOnChanges (): void {
-    Roullete(this.sectors).subscribe((res: any) => console.log(res));
+    var sec = new Array()
+    this.sectors.forEach((e: any, i: any) => {
+      if (!e.sorteado) {
+        sec.push(e)
+      }
+    });
+    Roullete(sec).subscribe((res: any) => console.log(res));
   }
 }
